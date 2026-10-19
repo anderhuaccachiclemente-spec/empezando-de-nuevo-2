@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes de Cómputo | Guía Interactiva Completa</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts (Outfit y Space Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Tu archivo CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">
+                <i class="bi bi-hdd-network-fill text-primary-custom me-2"></i>Red<span class="text-accent">Tech</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#concepto">Concepto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ipv4">IPv4</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#clases">Clases</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#elementos">Elementos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#calculadora">Calculadora</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quiz">Quiz</a></li>
+                    
+                    <!-- Botón PDF (No se imprime a sí mismo) -->
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <button id="btn-pdf" class="btn btn-outline-primary rounded-pill px-3 py-2 me-2" onclick="window.print()">
+                            <i class="bi bi-file-earmark-pdf"></i> PDF
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item mt-3 mt-lg-0">
+                        <button id="themeToggle" class="btn-theme" title="Cambiar tema">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= PORTADA (HERO) ================= -->
+    <section class="hero" id="inicio">
+        <canvas id="canvas-red"></canvas>
+        <div class="container hero-container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="hero-content reveal">
+                        <span class="badge badge-glow mb-4">Proyecto de Redes de Cómputo</span>
+                        <h1 class="hero-title mb-4">
+                            Configuración básica de una <br>
+                            <!-- Efecto Máquina de escribir -->
+                            <span class="text-gradient" id="typewriter"></span><span class="cursor-tipo">|</span>
+                        </h1>
+                        <p class="hero-subtitle mb-5">
+                            Descubre cómo los dispositivos se comunican, se identifican con IPv4 y comparten recursos en una red pequeña.
+                        </p>
+                        <a href="#concepto" class="btn btn-primary btn-lg rounded-pill px-5 py-3 btn-animado">
+                            Comenzar a explorar <i class="bi bi-arrow-down-circle ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECCIÓN: CONCEPTO ================= -->
+    <section id="concepto" class="py-5 section-custom">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-md-6 reveal">
+                    <h2 class="section-title mb-4">¿Qué es una red?</h2>
+                    <p class="lead text-muted-custom mb-4">Una red de cómputo es un conjunto de dispositivos (computadoras, celulares, impresoras) conectados entre sí para <strong>compartir información y recursos</strong>.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="bi bi-check2-circle"></i></div>
+                            <div>
+                                <h5>LAN (Local Area Network)</h5>
+                                <p class="small mb-0">Red de área local, utilizada en casas y oficinas para conectar equipos cercanos.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="bi bi-check2-circle"></i></div>
+                            <div>
+                                <h5>WAN (Wide Area Network)</h5>
+                                <p class="small mb-0">Red de área amplia, como Internet, que conecta dispositivos a nivel mundial.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 reveal delay-1">
+                    <div class="img-wrapper img-hover-zoom">
+                        <!-- Nueva imagen exclusiva para Concepto (Red Global) -->
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Red Global de Computadoras" class="img-fluid rounded-4 shadow-lg">
+                        <div class="img-overlay">
+                            <span class="badge bg-light text-dark">Infraestructura Global</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECCIÓN: IPV4 Y CLASES ================= -->
+    <section id="ipv4" class="py-5 bg-card-custom">
+        <div class="container py-5">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title">El Protocolo IPv4</h2>
+                <p class="text-muted-custom">Es la dirección única de 32 bits (4 octetos) que identifica a cada dispositivo. Ejemplo: <code>192.168.1.1</code>.</p>
+            </div>
+
+            <div id="clases" class="mt-5 reveal delay-1">
+                <h3 class="h4 text-center mb-4">Tabla de Clases de Red</h3>
+                <div class="table-responsive custom-card shadow-sm">
+                    <table class="table table-custom table-hover text-center align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Clase</th>
+                                <th>Rango del 1er Octeto</th>
+                                <th>Máscara por defecto</th>
+                                <th>Uso Principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong class="text-primary-custom">A</strong></td><td>1 - 126</td><td>255.0.0.0</td><td>Redes gigantes</td></tr>
+                            <tr><td><strong class="text-primary-custom">B</strong></td><td>128 - 191</td><td>255.255.0.0</td><td>Redes medianas</td></tr>
+                            <tr><td><strong class="text-primary-custom">C</strong></td><td>192 - 223</td><td>255.255.255.0</td><td>Redes pequeñas (LAN)</td></tr>
+                            <tr><td><strong class="text-primary-custom">D</strong></td><td>224 - 239</td><td>N/A</td><td>Multicast</td></tr>
+                            <tr><td><strong class="text-primary-custom">E</strong></td><td>240 - 255</td><td>N/A</td><td>Experimentación</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECCIÓN: ELEMENTOS (TARJETAS CLICABLES) ================= -->
+    <section id="elementos" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-4 reveal">
+                <h2 class="section-title">Elementos de una Red Pequeña</h2>
+                <p class="text-muted-custom">Haz clic en cada tarjeta para ver su concepto, o usa el botón para ver la simulación de tráfico.</p>
+                <button class="btn btn-success rounded-pill px-4 mt-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalSimulador">
+                    <i class="bi bi-play-circle-fill me-2"></i> Simular Tráfico de Red
+                </button>
+            </div>
+            
+            <div class="row g-4 text-center">
+                <!-- Router -->
+                <div class="col-md-4 col-sm-6 reveal">
+                    <div class="elemento-card" data-bs-toggle="modal" data-bs-target="#modalRouter">
+                        <div class="icon-wrapper"><i class="bi bi-router"></i></div>
+                        <h5>Router</h5>
+                        <p class="small text-muted-custom mb-0">Ver concepto</p>
+                    </div>
+                </div>
+                <!-- Switch -->
+                <div class="col-md-4 col-sm-6 reveal delay-1">
+                    <div class="elemento-card" data-bs-toggle="modal" data-bs-target="#modalSwitch">
+                        <div class="icon-wrapper"><i class="bi bi-diagram-3"></i></div>
+                        <h5>Switch</h5>
+                        <p class="small text-muted-custom mb-0">Ver concepto</p>
+                    </div>
+                </div>
+                <!-- Access Point -->
+                <div class="col-md-4 col-sm-6 reveal delay-2">
+                    <div class="elemento-card" data-bs-toggle="modal" data-bs-target="#modalAp">
+                        <div class="icon-wrapper"><i class="bi bi-wifi"></i></div>
+                        <h5>Access Point</h5>
+                        <p class="small text-muted-custom mb-0">Ver concepto</p>
+                    </div>
+                </div>
+                <!-- Cable UTP -->
+                <div class="col-md-4 col-sm-6 reveal">
+                    <div class="elemento-card" data-bs-toggle="modal" data-bs-target="#modalUtp">
+                        <div class="icon-wrapper"><i class="bi bi-ethernet"></i></div>
+                        <h5>Cable UTP</h5>
+                        <p class="small text-muted-custom mb-0">Ver concepto</p>
+                    </div>
+                </div>
+                <!-- Tarjeta de Red -->
+                <div class="col-md-4 col-sm-6 reveal delay-1">
+                    <div class="elemento-card" data-bs-toggle="modal" data-bs-target="#modalNic">
+                        <div class="icon-wrapper"><i class="bi bi-pc-display"></i></div>
+                        <h5>Tarjeta de Red (NIC)</h5>
+                        <p class="small text-muted-custom mb-0">Ver concepto</p>
+                    </div>
+                </div>
+                <!-- Servidores -->
+                <div class="col-md-4 col-sm-6 reveal delay-2">
+                    <div class="elemento-card" data-bs-toggle="modal" data-bs-target="#modalServidores">
+                        <div class="icon-wrapper"><i class="bi bi-server"></i></div>
+                        <h5>Servidores DHCP / DNS</h5>
+                        <p class="small text-muted-custom mb-0">Ver concepto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALES DE LOS ELEMENTOS (Imágenes únicas y HD) -->
+    <div class="modal fade" id="modalRouter" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content custom-card">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title"><i class="bi bi-router text-primary-custom me-2"></i>Router</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Router HD">
+                    <p>Es el dispositivo principal que conecta tu red local (LAN) con Internet (WAN). Se encarga de asignar direcciones IP a los dispositivos automáticamente (Servidor DHCP) y es la "puerta de enlace" hacia el exterior.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalSwitch" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content custom-card">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title"><i class="bi bi-diagram-3 text-primary-custom me-2"></i>Switch (Conmutador)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Switch HD">
+                    <p>Funciona como un distribuidor físico. Recibe los cables de las computadoras y envía los datos únicamente al dispositivo de destino, evitando que la información se mezcle o genere tráfico innecesario.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalAp" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content custom-card">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title"><i class="bi bi-wifi text-primary-custom me-2"></i>Access Point</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=800&q=80" alt="Access Point HD">
+                    <p>Dispositivo que permite conectar equipos inalámbricos (WiFi) a una red que utiliza cables (UTP). Básicamente, "convierte" la señal de cable a ondas de radio para celulares y laptops.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalUtp" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content custom-card">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title"><i class="bi bi-ethernet text-primary-custom me-2"></i>Cable UTP</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&w=800&q=80" alt="Cable UTP HD">
+                    <p>Cable de par trenzado sin blindaje. Es el medio físico más utilizado para conectar computadoras al switch o router. Utiliza conectores RJ45 y puede transmitir datos a altas velocidades.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalNic" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content custom-card">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title"><i class="bi bi-pc-display text-primary-custom me-2"></i>Tarjeta de Red (NIC)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Nueva imagen para NIC -->
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Tarjeta de Red HD">
+                    <p>Es el componente interno (o adaptador USB) que tiene cada computadora para poder conectarse a la red, ya sea por cable o WiFi. Cada tarjeta posee una dirección física única llamada dirección MAC.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalServidores" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content custom-card">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title"><i class="bi bi-server text-primary-custom me-2"></i>Servidores DHCP / DNS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Nueva imagen exclusiva para Servidores (Data Center) -->
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Servidores HD">
+                    <p><strong>DHCP:</strong> Es el servicio que asigna direcciones IP automáticamente a los dispositivos cuando se conectan a la red. (El router suele hacer esto).</p>
+                    <p><strong>DNS:</strong> Es la "agenda telefónica" de Internet. Traduce nombres fáciles de recordar (como google.com) a direcciones IP numéricas para que las computadoras se entiendan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DEL SIMULADOR DE TRÁFICO -->
+    <div class="modal fade" id="modalSimulador" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content custom-card">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-success"><i class="bi bi-activity me-2"></i>Simulación de Tráfico de Red</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-0">
+                    <p class="px-3 pt-3">Observa cómo un paquete de datos viaja desde la PC, pasa por el Switch, el Router y sale a Internet.</p>
+                    <svg viewBox="0 0 600 300" class="w-100" style="background: var(--bg-main); border-radius: 0 0 16px 16px;">
+                        <!-- Líneas de conexión -->
+                        <path id="rutaDatos" d="M 100 150 L 250 150 L 350 150 L 500 150" stroke="var(--border-color)" stroke-width="4" fill="none" stroke-dasharray="8 4"/>
+                        
+                        <!-- Nodos -->
+                        <circle cx="100" cy="150" r="30" fill="var(--bg-card)" stroke="var(--primary)" stroke-width="3"/>
+                        <text x="100" y="155" text-anchor="middle" fill="var(--text-main)" font-size="12" font-weight="bold">PC</text>
+                        
+                        <rect x="220" y="120" width="60" height="60" rx="10" fill="var(--bg-card)" stroke="var(--accent)" stroke-width="3"/>
+                        <text x="250" y="155" text-anchor="middle" fill="var(--text-main)" font-size="12" font-weight="bold">Switch</text>
+                        
+                        <rect x="320" y="120" width="60" height="60" rx="10" fill="var(--bg-card)" stroke="var(--purple)" stroke-width="3"/>
+                        <text x="350" y="155" text-anchor="middle" fill="var(--text-main)" font-size="12" font-weight="bold">Router</text>
+                        
+                        <circle cx="500" cy="150" r="35" fill="var(--bg-card)" stroke="var(--success)" stroke-width="3"/>
+                        <text x="500" y="155" text-anchor="middle" fill="var(--text-main)" font-size="12" font-weight="bold">Internet</text>
+
+                        <!-- Paquete animado -->
+                        <circle r="8" fill="#10b981" id="paqueteDatos">
+                            <animateMotion dur="2s" repeatCount="indefinite" path="M 100 150 L 250 150 L 350 150 L 500 150" />
+                        </circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= SECCIÓN: CALCULADORA IP ================= -->
+    <section id="calculadora" class="py-5 bg-card-custom">
+        <div class="container py-5">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title"><i class="bi bi-calculator text-primary-custom me-2"></i>Calculadora IPv4</h2>
+                <p class="text-muted-custom">Ingresa una IP y elige la máscara (CIDR) para calcular su dirección de red, broadcast y rango de hosts.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="custom-card p-4 p-md-5 reveal delay-1">
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-7">
+                                <label class="form-label fw-bold">Dirección IP</label>
+                                <input type="text" id="ip-input" class="form-control form-control-lg custom-input" placeholder="Ej: 192.168.1.10" value="192.168.1.10">
+                                <!-- Mensaje de error oculto -->
+                                <div id="ip-error" class="text-danger small mt-2 d-none fw-bold">
+                                    <i class="bi bi-exclamation-triangle-fill me-1"></i> Ingresa una IP válida (ej. 192.168.1.1)
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label class="form-label fw-bold">Máscara (CIDR)</label>
+                                <select id="mask-input" class="form-select form-select-lg custom-input">
+                                    <option value="24">/24 (255.255.255.0) - Clase C</option>
+                                    <option value="16">/16 (255.255.0.0) - Clase B</option>
+                                    <option value="8">/8 (255.0.0.0) - Clase A</option>
+                                    <option value="25">/25 (255.255.255.128)</option>
+                                    <option value="26">/26 (255.255.255.192)</option>
+                                    <option value="27">/27 (255.255.255.224)</option>
+                                    <option value="28">/28 (255.255.255.240)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button id="btn-calcular" class="btn btn-primary w-100 py-3 fs-5 rounded-pill btn-animado shadow">Calcular Red</button>
+
+                        <!-- Resultados -->
+                        <div id="resultados" class="mt-5 d-none">
+                            <div class="row g-3 text-center">
+                                <div class="col-md-6">
+                                    <div class="calc-resultado border-primary-custom">
+                                        <small class="text-muted d-block">Clase de Red</small>
+                                        <strong id="res-clase" class="fs-4 text-primary-custom">-</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="calc-resultado border-primary-custom">
+                                        <small class="text-muted d-block">Máscara Decimal</small>
+                                        <strong id="res-mask" class="fs-4">-</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="calc-resultado" style="border-left-color: #8b5cf6;">
+                                        <small class="text-muted d-block">Dirección de Red</small>
+                                        <strong id="res-network" class="fs-4" style="color: #8b5cf6;">-</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="calc-resultado" style="border-left-color: #10b981;">
+                                        <small class="text-muted d-block">Dirección Broadcast</small>
+                                        <strong id="res-broadcast" class="fs-4" style="color: #10b981;">-</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="calc-resultado" style="border-left-color: #f59e0b;">
+                                        <small class="text-muted d-block">Rango de Hosts</small>
+                                        <strong id="res-range" class="fs-5" style="color: #f59e0b;">-</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="calc-resultado" style="border-left-color: #ef4444;">
+                                        <small class="text-muted d-block">Total de Hosts Válidos</small>
+                                        <strong id="res-total" class="fs-4" style="color: #ef4444;">-</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECCIÓN: QUIZ ================= -->
+    <section id="quiz" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title"><i class="bi bi-patch-question-fill text-primary-custom me-2"></i>Mini Quiz</h2>
+                <p class="text-muted-custom">Pon a prueba lo que has aprendido.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="custom-card p-4 p-md-5 reveal delay-1">
+                        <div id="quiz-container">
+                            <!-- Preguntas inyectadas por JS -->
+                        </div>
+                        <button id="btn-quiz-next" class="btn btn-primary w-100 mt-3 py-3 rounded-pill btn-animado d-none">Siguiente Pregunta</button>
+                        <div id="quiz-result" class="text-center d-none mt-4">
+                            <h3 class="text-primary-custom mb-3">¡Quiz Completado!</h3>
+                            <p class="fs-5 mb-4" id="quiz-score"></p>
+                            <button class="btn btn-outline-primary rounded-pill px-4" id="btn-reiniciar">Intentar de nuevo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="py-5 text-center footer-custom">
+        <div class="container">
+            <h5 class="mb-3"><i class="bi bi-hdd-network-fill text-primary-custom me-2"></i>RedTech</h5>
+            <p class="mb-1">Proyecto de Redes de Cómputo</p>
+            <p class="small text-muted-custom">Diseñado con HTML, CSS, JS y Bootstrap.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE GLOSARIO -->
+    <button class="btn btn-dark floating-btn-glossary shadow-lg" data-bs-toggle="offcanvas" data-bs-target="#glosarioOffcanvas" title="Abrir Glosario">
+        <i class="bi bi-book-half"></i>
+    </button>
+
+    <!-- PANEL LATERAL: GLOSARIO TÉCNICO -->
+    <div class="offcanvas offcanvas-start custom-card" tabindex="-1" id="glosarioOffcanvas" style="width: 350px; border-radius: 0 20px 20px 0;">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold"><i class="bi bi-book text-primary-custom me-2"></i>Glosario Técnico</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-group list-group-flush bg-transparent">
+                <li class="list-group-item bg-transparent text-muted-custom mb-2"><strong class="text-main">IP:</strong> Dirección lógica única de un dispositivo en una red.</li>
+                <li class="list-group-item bg-transparent text-muted-custom mb-2"><strong class="text-main">Máscara de Subred:</strong> Define qué parte de la IP es la red y qué parte es el host.</li>
+                <li class="list-group-item bg-transparent text-muted-custom mb-2"><strong class="text-main">DHCP:</strong> Protocolo que asigna IPs automáticamente.</li>
+                <li class="list-group-item bg-transparent text-muted-custom mb-2"><strong class="text-main">DNS:</strong> Traduce nombres de dominio (google.com) a direcciones IP.</li>
+                <li class="list-group-item bg-transparent text-muted-custom mb-2"><strong class="text-main">MAC:</strong> Dirección física única de la tarjeta de red.</li>
+                <li class="list-group-item bg-transparent text-muted-custom mb-2"><strong class="text-main">LAN:</strong> Red de Área Local (casa, oficina).</li>
+                <li class="list-group-item bg-transparent text-muted-custom mb-2"><strong class="text-main">WAN:</strong> Red de Área Amplia (Internet).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Botón Volver Arriba -->
+    <button id="btn-arriba" class="btn btn-primary btn-arriba-animado">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Tu archivo JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
